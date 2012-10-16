@@ -142,7 +142,7 @@ compileScript = (file, input, base) ->
     return if CoffeeScript.listeners('failure').length
     return printLine err.message + '\x07' if o.watch
     printWarn err instanceof Error and err.stack or "ERROR: #{err}"
-    process.exit 1
+    throw err
 
 # Attach the appropriate listeners to compile scripts incoming over **stdin**,
 # and write them back to **stdout**.
